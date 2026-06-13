@@ -1,0 +1,207 @@
+sources:
+  - name: FAA Newsroom
+    kind: news_page
+    tier: regulator
+    url: https://www.faa.gov/newsroom
+    topics: [policy, safety_regulatory, operations]
+    article_paths:
+      - "^/newsroom/faa-(proposes|establishes|issues|announces|requires|orders)"
+      - "^/newsroom/trumps-transportation-secretary"
+
+  - name: U.S. DOT Briefing Room
+    kind: news_page
+    tier: regulator
+    url: https://www.transportation.gov/briefing-room
+    topics: [policy, customer_experience]
+    article_paths: ["^/briefing-room/"]
+
+  - name: NTSB Newsroom
+    kind: news_page
+    tier: regulator
+    url: https://www.ntsb.gov/news/Pages/default.aspx
+    topics: [safety_regulatory]
+    article_paths: ["^/news/press-releases/"]
+
+  - name: IATA Pressroom
+    kind: news_page
+    tier: industry
+    url: https://www.iata.org/en/pressroom/
+    topics: [policy, operations, financial_strategy]
+    article_paths: ["^/en/pressroom/20"]
+    exclude_title_keywords: ["awards announced"]
+
+  - name: Airlines for America
+    kind: news_page
+    tier: industry
+    url: https://www.airlines.org/news/
+    topics: [policy, operations]
+    article_paths: ["^/news/"]
+
+  - name: Delta News Hub
+    kind: news_page
+    tier: official
+    url: https://news.delta.com/
+    topics: [leadership, fleet_aircraft, operations, customer_experience]
+    article_paths: ["^/.*[0-9]{4}"]
+
+  - name: United Newsroom
+    kind: news_page
+    tier: official
+    url: https://www.united.com/en/us/newsroom
+    topics: [leadership, fleet_aircraft, operations, customer_experience]
+    article_paths: ["news", "press"]
+
+  - name: Alaska and Hawaiian News
+    kind: feed
+    tier: official
+    url: https://news.alaskaair.com/feed/
+    topics: [leadership, fleet_aircraft, operations, customer_experience]
+    max_items: 12
+    exclude_title_keywords: ["sweepstakes", "gift guide"]
+
+  - name: American Airlines Newsroom
+    kind: news_page
+    tier: official
+    url: https://news.aa.com/
+    topics: [leadership, fleet_aircraft, operations, customer_experience]
+    article_paths: ["news-details"]
+
+  - name: United Airlines Media Coverage
+    kind: feed
+    tier: media
+    url: "https://news.google.com/rss/search?q=%22United%20Airlines%22%20%28policy%20OR%20fleet%20OR%20aircraft%20OR%20CEO%20OR%20app%20OR%20route%20OR%20service%20OR%20loyalty%29%20when%3A7d&hl=en-US&gl=US&ceid=US%3Aen"
+    topics: [policy, leadership, fleet_aircraft, operations, app, customer_experience]
+    max_items: 10
+
+  - name: JetBlue Media Coverage
+    kind: feed
+    tier: media
+    url: "https://news.google.com/rss/search?q=%22JetBlue%22%20%28policy%20OR%20fleet%20OR%20aircraft%20OR%20CEO%20OR%20app%20OR%20route%20OR%20service%20OR%20loyalty%29%20when%3A7d&hl=en-US&gl=US&ceid=US%3Aen"
+    topics: [policy, leadership, fleet_aircraft, operations, app, customer_experience]
+    max_items: 10
+
+  - name: Southwest Airlines Media Coverage
+    kind: feed
+    tier: media
+    url: "https://news.google.com/rss/search?q=%22Southwest%20Airlines%22%20%28policy%20OR%20fleet%20OR%20aircraft%20OR%20CEO%20OR%20app%20OR%20route%20OR%20service%20OR%20loyalty%29%20when%3A7d&hl=en-US&gl=US&ceid=US%3Aen"
+    topics: [policy, leadership, fleet_aircraft, operations, app, customer_experience]
+    max_items: 10
+
+  - name: American Airlines Media Coverage
+    kind: feed
+    tier: media
+    url: "https://news.google.com/rss/search?q=%22American%20Airlines%22%20%28policy%20OR%20fleet%20OR%20aircraft%20OR%20CEO%20OR%20app%20OR%20route%20OR%20service%20OR%20loyalty%29%20when%3A7d&hl=en-US&gl=US&ceid=US%3Aen"
+    topics: [policy, leadership, fleet_aircraft, operations, app, customer_experience]
+    max_items: 8
+
+  - name: Frontier Airlines Media Coverage
+    kind: feed
+    tier: media
+    url: "https://news.google.com/rss/search?q=%22Frontier%20Airlines%22%20%28policy%20OR%20fleet%20OR%20aircraft%20OR%20CEO%20OR%20app%20OR%20route%20OR%20service%20OR%20loyalty%29%20when%3A7d&hl=en-US&gl=US&ceid=US%3Aen"
+    topics: [policy, leadership, fleet_aircraft, operations, app, customer_experience]
+    max_items: 6
+
+  - name: Spirit Airlines Media Coverage
+    kind: feed
+    tier: media
+    url: "https://news.google.com/rss/search?q=%22Spirit%20Airlines%22%20%28policy%20OR%20fleet%20OR%20aircraft%20OR%20CEO%20OR%20app%20OR%20route%20OR%20service%20OR%20loyalty%29%20when%3A7d&hl=en-US&gl=US&ceid=US%3Aen"
+    topics: [policy, leadership, fleet_aircraft, operations, app, customer_experience]
+    max_items: 6
+
+  - name: Allegiant Air Media Coverage
+    kind: feed
+    tier: media
+    url: "https://news.google.com/rss/search?q=%22Allegiant%20Air%22%20%28policy%20OR%20fleet%20OR%20aircraft%20OR%20CEO%20OR%20app%20OR%20route%20OR%20service%20OR%20loyalty%29%20when%3A7d&hl=en-US&gl=US&ceid=US%3Aen"
+    topics: [policy, leadership, fleet_aircraft, operations, app, customer_experience]
+    max_items: 6
+
+  - name: Delta Customer Commitment
+    kind: page
+    tier: official
+    url: https://www.delta.com/us/en/legal/customer-commitment
+    topics: [policy, website, customer_experience]
+
+  - name: United Contract of Carriage
+    kind: page
+    tier: official
+    url: https://www.united.com/en/us/fly/contract-of-carriage.html
+    topics: [policy, website, customer_experience]
+
+  - name: American Conditions of Carriage
+    kind: page
+    tier: official
+    url: https://www.aa.com/i18n/customer-service/support/conditions-of-carriage.jsp
+    topics: [policy, website, customer_experience]
+
+  - name: Boeing News
+    kind: news_page
+    tier: official
+    url: https://boeing.mediaroom.com/
+    topics: [fleet_aircraft, leadership, safety_regulatory]
+    article_paths: ["news-releases-statements"]
+    exclude_title_keywords:
+      - "Navy"
+      - "MQ-28"
+      - "Ghost Bat"
+      - "defence"
+      - "defense"
+      - "combat"
+      - "military"
+
+  - name: Airbus Newsroom
+    kind: news_page
+    tier: official
+    url: https://www.airbus.com/en/newsroom
+    topics: [fleet_aircraft, leadership, safety_regulatory]
+    article_paths: ["^/en/newsroom/press-releases/"]
+    exclude_title_keywords:
+      - "drone"
+      - "uncrewed"
+      - "defence"
+      - "defense"
+      - "missile"
+      - "military"
+      - "sovereign aerospace"
+      - "offshore energy"
+
+  - name: Fly Delta for iOS
+    kind: app_store
+    tier: official
+    url: https://itunes.apple.com/lookup?id=388491656
+    topics: [app, customer_experience]
+
+  - name: United Airlines for iOS
+    kind: app_store
+    tier: official
+    url: https://itunes.apple.com/lookup?id=449945214
+    topics: [app, customer_experience]
+
+  - name: American Airlines for iOS
+    kind: app_store
+    tier: official
+    url: https://itunes.apple.com/lookup?id=382698565
+    topics: [app, customer_experience]
+
+  - name: JetBlue for iOS
+    kind: app_store
+    tier: official
+    url: https://itunes.apple.com/lookup?id=481370590
+    topics: [app, customer_experience]
+
+  - name: Alaska Hawaiian for iOS
+    kind: app_store
+    tier: official
+    url: https://itunes.apple.com/lookup?id=356143077
+    topics: [app, customer_experience]
+
+  - name: Southwest Airlines for iOS
+    kind: app_store
+    tier: official
+    url: https://itunes.apple.com/lookup?id=344542975
+    topics: [app, customer_experience]
+
+  - name: Frontier Airlines for iOS
+    kind: app_store
+    tier: official
+    url: https://itunes.apple.com/lookup?id=1041410548
+    topics: [app, customer_experience]

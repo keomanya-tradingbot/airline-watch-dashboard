@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Airline Industry Watch</title>
+  <style>
+    :root {
+      --ink: #12233f; --muted: #627087; --line: #dfe5ec;
+      --paper: #f5f7fa; --card: #fff; --navy: #0a2d55;
+      --blue: #1769aa; --sky: #dcedfa; --red: #b42318;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink);
+      font: 15px/1.55 Inter, ui-sans-serif, system-ui, sans-serif; }
+    header { background: linear-gradient(135deg, #071d36, #0d4778);
+      color: white; padding: 52px 24px 44px; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    .eyebrow { color: #9fd4fb; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; font-size: 12px; }
+    h1 { margin: 8px 0 6px; font-size: clamp(34px, 6vw, 58px);
+      line-height: 1.05; letter-spacing: -.035em; }
+    .subtitle { color: #d9e8f5; max-width: 700px; font-size: 17px; }
+    .updated { color: #a8c6df; margin-top: 22px; font-size: 13px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      margin-top: -24px; }
+    .stat { background: var(--card); border: 1px solid var(--line);
+      border-radius: 14px; padding: 20px; box-shadow: 0 8px 24px #16324f12; }
+    .stat strong { display: block; font-size: 28px; }
+    .stat span { color: var(--muted); }
+    main { padding: 34px 0 60px; }
+    .toolbar { display: flex; gap: 9px; flex-wrap: wrap; margin: 26px 0; }
+    .filter { border: 1px solid #cdd6e0; background: white; color: var(--ink);
+      border-radius: 999px; padding: 9px 14px; cursor: pointer; font-weight: 650; }
+    .filter.active { background: var(--navy); color: white; border-color: var(--navy); }
+    .news-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .news-card, .empty { background: var(--card); border: 1px solid var(--line);
+      border-radius: 16px; padding: 24px; box-shadow: 0 5px 18px #16324f0b; }
+    .card-top, .meta { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+    .category { background: var(--sky); color: #154e7a; border-radius: 6px;
+      padding: 4px 8px; font-size: 12px; font-weight: 750; }
+    .importance { margin-left: auto; color: var(--muted); font-size: 12px; font-weight: 700; }
+    .importance-4, .importance-5 { color: var(--red); }
+    h2 { font-size: 21px; line-height: 1.25; margin: 16px 0 12px; }
+    h2 a { color: var(--ink); text-decoration: none; }
+    h2 a:hover { color: var(--blue); }
+    .summary { font-size: 16px; }
+    .impact { color: #42536b; }
+    .meta { border-top: 1px solid var(--line); margin-top: 18px;
+      padding-top: 14px; color: var(--muted); font-size: 12px; }
+    .health { margin-top: 34px; border-top: 1px solid var(--line); padding-top: 24px; }
+    details ul { max-height: 180px; overflow: auto; color: var(--muted); }
+    .all-good { color: #16794b; font-weight: 650; }
+    footer { color: var(--muted); padding: 0 0 40px; }
+    @media (max-width: 760px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .news-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="eyebrow">Daily intelligence brief</div>
+      <h1>Airline Industry Watch</h1>
+      <div class="subtitle">Material changes across airline policy, fleets,
+      leadership, digital products, operations, safety, and customer experience.</div>
+      <div class="updated">Updated June 13, 2026 at 03:29 UTC
+      · Coverage since May 14, 2026</div>
+    </div>
+  </header>
+  <div class="wrap">
+    <section class="stats">
+      <div class="stat"><strong>30</strong><span>Material updates</span></div>
+      <div class="stat"><strong>5</strong><span>High priority</span></div>
+      <div class="stat"><strong>26</strong><span>Healthy sources</span></div>
+      <div class="stat"><strong>2</strong><span>Source warnings</span></div>
+    </section>
+    <main>
+      <nav class="toolbar"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="customer_experience">Customer Experience</button><button class="filter" data-filter="financial_strategy">Financial Strategy</button><button class="filter" data-filter="fleet_aircraft">Fleet Aircraft</button><button class="filter" data-filter="leadership">Leadership</button><button class="filter" data-filter="operations">Operations</button><button class="filter" data-filter="policy">Policy</button><button class="filter" data-filter="safety_regulatory">Safety Regulatory</button></nav>
+      <section class="news-grid">
+            <article class="news-card" data-category="safety_regulatory">
+              <div class="card-top">
+                <span class="category">Safety Regulatory</span>
+                <span class="importance importance-4">
+                  Priority 4/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxPYlJ1elhQeDVhbUdLUUlxa1RzRUpmZVd6OEZoaWg4bW10RlZmYzZOcDNNVHJEbDRDd0hKbHlvemluUkNKVnFpMF9nUUg3QUZ3cE51QTlsTUZrSEsxLW41UUJhODQ0a1VyWS04U3IxZmVMUTFyajRhYUJhQ2VrQ2VnZHJqdkt0V1Y0Rk1HdzJvRlZDaVMwUldMdkZIRGFoSkl0dlFZa25pa0FUcmdvbHdNRngxVUdaZw?oc=5" target="_blank" rel="noreferrer">
+                FAA: 2 Southwest Airlines planes collide at T.F. Green - WJAR
+              </a></h2>
+              <p class="summary">FAA: 2 Southwest Airlines planes collide at T.F. Green WJAR</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                May affect aviation safety practices, regulatory oversight, or operational restrictions.
+              </p>
+              <div class="meta">
+                <span>Southwest Airlines Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 12, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="safety_regulatory">
+              <div class="card-top">
+                <span class="category">Safety Regulatory</span>
+                <span class="importance importance-4">
+                  Priority 4/5
+                </span>
+              </div>
+              <h2><a href="https://www.iata.org/en/pressroom/2026-releases/06-08-iata-launches-save-a-life-not-a-bag-passenger-safety-campaign" target="_blank" rel="noreferrer">
+                IATA Launches “Save a Life, Not a Bag” Passenger Safety Campaign
+              </a></h2>
+              <p class="summary">Translations: 国际航协启动“救人别救包”旅客安全宣传活动 (pdf) (pdf) الاتحاد الدولي للنقل الجوي (إياتا) يطلق حملة «أنقذ حياة، لا حقيبة» لتعزيز سلامة المسافرين IATA lanza la campaña de seguridad para los pasajeros “Save a Life, Not a Bag” (pdf) Rio de Janeiro - The International Air Transport...</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                May affect aviation safety practices, regulatory oversight, or operational restrictions.
+              </p>
+              <div class="meta">
+                <span>IATA Pressroom</span>
+                <span>Industry</span>
+                <span>Jun 13, 2026</span>
+                <span>Confirmed</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="safety_regulatory">
+              <div class="card-top">
+                <span class="category">Safety Regulatory</span>
+                <span class="importance importance-4">
+                  Priority 4/5
+                </span>
+              </div>
+              <h2><a href="https://www.faa.gov/newsroom/faa-proposes-104000-fine-against-private-jets-inc-alleged-pilot-training-violations" target="_blank" rel="noreferrer">
+                FAA Proposes $104,000 Fine Against Private Jets, Inc. for Alleged Pilot Training Violations
+              </a></h2>
+              <p class="summary">WASHINGTON — The Federal Aviation Administration (FAA) proposes a $104,000 civil penalty against Private Jets, Inc. of Bethany, Oklahoma, for allegedly violating pilot qualification regulations. The FAA alleges that a Private Jets employee piloted several flights in April 2025...</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                May affect aviation safety practices, regulatory oversight, or operational restrictions.
+              </p>
+              <div class="meta">
+                <span>FAA Newsroom</span>
+                <span>Regulator</span>
+                <span>Jun 13, 2026</span>
+                <span>Confirmed</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="safety_regulatory">
+              <div class="card-top">
+                <span class="category">Safety Regulatory</span>
+                <span class="importance importance-4">
+                  Priority 4/5
+                </span>
+              </div>
+              <h2><a href="https://www.faa.gov/newsroom/faa-establishes-no-drone-zones-fifa-world-cup-2026-stadiums-fan-events-and-base-camps" target="_blank" rel="noreferrer">
+                FAA Establishes ‘No Drone Zones’ for FIFA World Cup 2026 Stadiums, Fan Events and Base Camps
+              </a></h2>
+              <p class="summary">WASHINGTON – The Federal Aviation Administration (FAA), in coordination with the Department of Homeland Security and the Department of Justice, will establish temporary flight restrictions (TFRs) over stadiums hosting FIFA World Cup 2026 matches and related fan events across the...</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                May affect aviation safety practices, regulatory oversight, or operational restrictions.
+              </p>
+              <div class="meta">
+                <span>FAA Newsroom</span>
+                <span>Regulator</span>
+                <span>Jun 13, 2026</span>
+                <span>Confirmed</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="safety_regulatory">
+              <div class="card-top">
+                <span class="category">Safety Regulatory</span>
+                <span class="importance importance-4">
+                  Priority 4/5
+                </span>
+              </div>
+              <h2><a href="https://www.faa.gov/newsroom/trumps-transportation-secretary-sean-p-duffy-announces-first-texas-college-join-air" target="_blank" rel="noreferrer">
+                Trump’s Transportation Secretary Sean P. Duffy Announces First Texas College to Join Air Traffic Controller Training Program
+              </a></h2>
+              <p class="summary">WASHINGTON, D.C. - U.S. Transportation Secretary Sean P. Duffy today announced the Federal Aviation Administration (FAA) has partnered with Angelo State University in Texas to implement the Enhanced Air Traffic – Collegiate Training Initiative (E-CTI) . Students who pass the...</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                May affect aviation safety practices, regulatory oversight, or operational restrictions.
+              </p>
+              <div class="meta">
+                <span>FAA Newsroom</span>
+                <span>Regulator</span>
+                <span>Jun 13, 2026</span>
+                <span>Confirmed</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="leadership">
+              <div class="card-top">
+                <span class="category">Leadership</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxOazcyTndNa0pqMDZhM2tzQlBsTDJBdThkMUR5NW93WjhYd3hSbVVxMFpYMk1SaW9sc2J1S2xFald3NzktR3Fuc1FhMkdfV1o5WE1CSG8wd0prZWE1RkYyZkRTdDlXQkQ0UlhTaGdYcGtlX3JFb3FnV041TDVEMmQxa25JanN6azM0MFRRWEFSeG9vNkJnbUY3MlJ4czJkN24zRDVIVGR1RjZGbEFjdkVOUjlzX3TSAbQBQVVfeXFMTms3Mk53TWtKajA2YTNrc0JQbEwyQXU4ZDFEeTVvd1o4WHd4Um1VcTBaWDJNUmlvbHNidUtsRWpXdzc5LUdxbnNRYTJHX1daOVhNQkhvMHdKa2VhNUZGMmZEU3Q5V0JENFJYU2hnWHBrZV9yRW9xZ1dONUw1RDJkMWtuSWpzemszNDBUUVhBUnhvbzZCZ21GNzJSeHMyZDduM0Q1SFRkdUY2RmxBY3ZFTlI5c190?oc=5" target="_blank" rel="noreferrer">
+                ‘We’ve been focused on being different.’ Allegiant Air’s CEO formula for success - AeroTime
+              </a></h2>
+              <p class="summary">‘We’ve been focused on being different.’ Allegiant Air’s CEO formula for success AeroTime</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                A leadership change can alter company priorities, execution, and strategic direction.
+              </p>
+              <div class="meta">
+                <span>Allegiant Air Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 12, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="policy">
+              <div class="card-top">
+                <span class="category">Policy</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE5KUnJfMy10cjBJb01waVBQNGF6a2ZCZkUxaW9iX0hnSTd5YzNaa1g1ODBfMmphb2lQaDVVb0ctcmFVOFIwZWJoTXNmNks3Vzk4TUYwT3R6S3RPXzZYSDBEM19fT0RBdw?oc=5" target="_blank" rel="noreferrer">
+                Allegiant Airlines Baggage Fees [2026]: 4 Ways to Avoid - FinanceBuzz
+              </a></h2>
+              <p class="summary">Allegiant Airlines Baggage Fees [2026]: 4 Ways to Avoid FinanceBuzz</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                May change airline obligations, passenger rights, fees, or compliance requirements.
+              </p>
+              <div class="meta">
+                <span>Allegiant Air Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 09, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="fleet_aircraft">
+              <div class="card-top">
+                <span class="category">Fleet Aircraft</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxOQ0VmNzBTNmlwNFoyTUh2WC03WVRyVXd5cTVlTk9lNVFyanBSRWliN3hnaGxrRXpNeGVUSko4UEh4UnNEdjFua1Bya2szLTRQRFJlU0wyN0dvTlNYMmp6eVp0ckR2V0R6YkJFY0FRR1NvMVRJNFNkWm92RXR0MU9hVU80bUVVcVlCNHFNaF9aQTJDLWRI?oc=5" target="_blank" rel="noreferrer">
+                &quot;Metal Debris&quot;: Southwest Airlines Boeing 737 Diverts Back To Austin With Damaged Engine - Simple Flying
+              </a></h2>
+              <p class="summary">&quot;Metal Debris&quot;: Southwest Airlines Boeing 737 Diverts Back To Austin With Damaged Engine Simple Flying</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                Could affect fleet capability, aircraft availability, operating economics, or future capacity.
+              </p>
+              <div class="meta">
+                <span>Southwest Airlines Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 06, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="fleet_aircraft">
+              <div class="card-top">
+                <span class="category">Fleet Aircraft</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxOSmllRUFMTU1wUjJJSUs2ZHgwYTIxTGtURW5KYWZXNnRRaUVlQUVMbWhmWlk4ZlIzOFEzWFNWMFRRVklhU3YyVlNaUl9uSjQ1X3JOVGJFYklWS1lSZ2UtS054bjEwMVhLaXBGa0hwR1pKTGkyXzNJak1Rb2xJVWJtb3RMbVlRbm1rTm1fQTl6RFdTcmlMSjlZNUFnV28?oc=5" target="_blank" rel="noreferrer">
+                Southwest to debut Boeing 737 Max 7 early in 2027 - FlightGlobal
+              </a></h2>
+              <p class="summary">Southwest to debut Boeing 737 Max 7 early in 2027 FlightGlobal</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                Could affect fleet capability, aircraft availability, operating economics, or future capacity.
+              </p>
+              <div class="meta">
+                <span>Southwest Airlines Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 07, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="leadership">
+              <div class="card-top">
+                <span class="category">Leadership</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxNQlZJX2xKYWpMRjRIY1FPVGVfTjhkT0pFZlJ5Zng5M2lVeVlmT3ZPMVc1TGNfUHhKMzV1OG9MNERua1JZMW16VGhra2VkR2NyMW9yS1UtN2lXN2pTQU5lVkx3Sk80elRwMy1fTVNva0R6UzNGak4tNGIwR0dCTm9pY1NCTGJocHozbUdlYjdCV2ZZZGkyYm5NWWlLZU43bm9zRUZBUlpNam4xRmJ1MzFn?oc=5" target="_blank" rel="noreferrer">
+                Watch JetBlue CEO on Future Plans and Potential Consolidation - Bloomberg.com
+              </a></h2>
+              <p class="summary">Watch JetBlue CEO on Future Plans and Potential Consolidation Bloomberg.com</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                A leadership change can alter company priorities, execution, and strategic direction.
+              </p>
+              <div class="meta">
+                <span>JetBlue Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 08, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="leadership">
+              <div class="card-top">
+                <span class="category">Leadership</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxPYzRVOFU1S3dLR1UtM2toQS1QYlA2THh2amdSYmdYZThTQ0pjeUI3SXZOdHQ3R05tUnpxeU5RVmhLOXROalNsSDNaajJiS0RReWd5VU1kaEpPa1pvcEJIUThiZThkc2tCM2JWa1hDNWpqaEtsOW0yZXJwZmozdkNUTDBfakRWMHV6YWpZWXNoOEZmVHh2UE1ieTJRMkdCUGVibE1KUmVUbHRLbl8zQUR2bVMwWVUteTBHMzA3N1JCcw?oc=5" target="_blank" rel="noreferrer">
+                United Airlines CEO says big merger unlikely after American rebuff, asset buys possible - Reuters
+              </a></h2>
+              <p class="summary">United Airlines CEO says big merger unlikely after American rebuff, asset buys possible Reuters</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                A leadership change can alter company priorities, execution, and strategic direction.
+              </p>
+              <div class="meta">
+                <span>United Airlines Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 08, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="leadership">
+              <div class="card-top">
+                <span class="category">Leadership</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxOcGZMNUhwUEdpeVNFQnNjQWl1VDhxOWotak0tc2JjZXlTR0xtSkpDYU9HZkw2QkktZHZSUzdQeXBldWw4blh6UjBUMW1CdnQ2akRtaENRUkNDWFdvTmpDbzNZM1R5MmV0bEw3QngxMXZlUG5LTUtncGVFdXJVbVF6cFByN2RiRFl3TVlsZEJGX0dKM09SRkNhMzA3b1hoZFhmUHBwT0JiRQ?oc=5" target="_blank" rel="noreferrer">
+                United Airlines CEO says affluent passengers are still spending - Crain&#x27;s Chicago Business
+              </a></h2>
+              <p class="summary">United Airlines CEO says affluent passengers are still spending Crain&#x27;s Chicago Business</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                A leadership change can alter company priorities, execution, and strategic direction.
+              </p>
+              <div class="meta">
+                <span>United Airlines Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 07, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="fleet_aircraft">
+              <div class="card-top">
+                <span class="category">Fleet Aircraft</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxNTEdxb0Q2SVNiNi1ZR25ZMHZfYVBkenhZM0pwRjZVWDRrYjIzQWRnRHhZRThpdWhydkc3djhJeHRqc2pOTEkzQlNHaFhsMDlaNUJpV3cwZUhqWGpIcENMMmJaSE1rMGt3d0JsRVJjcUlaUTg4NnY4cGFFeC1VNEJlQUlXX3h5WHByQllTSmxNX2FBejNNTU9aaFNGQ1E1SjhaN0ZR?oc=5" target="_blank" rel="noreferrer">
+                United Airlines’ CEO Slams Rolls-Royce, Says It Only Wins Orders Due To An Airbus A350 Monopoly - Simple Flying
+              </a></h2>
+              <p class="summary">United Airlines’ CEO Slams Rolls-Royce, Says It Only Wins Orders Due To An Airbus A350 Monopoly Simple Flying</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                Could affect fleet capability, aircraft availability, operating economics, or future capacity.
+              </p>
+              <div class="meta">
+                <span>United Airlines Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 07, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="leadership">
+              <div class="card-top">
+                <span class="category">Leadership</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFAySXdtalVoVVBmUlpHYXVqa3BnYkFqUWhPYTYtOHlxYnFpTlFSak9IU0JqcnhreHdUOE9SU0tGWTJOTVdDTHFPVl9YdTEtODMwSXd3SnlhRXdna0V1eXZFdmM3UHk4cEl1clZDNG95MlrSAXZBVV95cUxNc3hBMHprQTd2Tk9EYmxnM2w4bzBfSFlmM28xUXZocUx3SEVGYlI4N2R2NnZiOFpiTVExb2VOTGNld3g4cmxrRkc1TGRKeWtwREpSYnlzZVVPakFYcmhBbHNPbjd6ekFLQ19mYU1meEtiT0d3STlR?oc=5" target="_blank" rel="noreferrer">
+                United CEO brushes off airline mergers after American rejection: &#x27;There&#x27;s nothing&#x27; - CNBC
+              </a></h2>
+              <p class="summary">United CEO brushes off airline mergers after American rejection: &#x27;There&#x27;s nothing&#x27; CNBC</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                A leadership change can alter company priorities, execution, and strategic direction.
+              </p>
+              <div class="meta">
+                <span>United Airlines Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 08, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="policy">
+              <div class="card-top">
+                <span class="category">Policy</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE54ZlV6VTAwdHcwNVlwSWhHeU1BM2VLWUMwNDZWeW1lV3BaSEtFZmJEVTRyR0hpT1hkdFVGRFZ1RlVMdVRlUzlNWmRFdExjNkQyVmloel9JekstWUgtcVRsYm1TVTJyQmhzYUttNklqSTdYdw?oc=5" target="_blank" rel="noreferrer">
+                United Airlines CEO rules out merger, open to asset buys - qz.com
+              </a></h2>
+              <p class="summary">United Airlines CEO rules out merger, open to asset buys qz.com</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                May change airline obligations, passenger rights, fees, or compliance requirements.
+              </p>
+              <div class="meta">
+                <span>United Airlines Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 08, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="fleet_aircraft">
+              <div class="card-top">
+                <span class="category">Fleet Aircraft</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://news.alaskaair.com/company/three-new-hawaiian-airlines-liveries-set-sail-this-summer-for-disneys-live-action-moana" target="_blank" rel="noreferrer">
+                Three new Hawaiian Airlines liveries set sail this summer for Disney’s live-action ‘Moana’
+              </a></h2>
+              <p class="summary">Hawaiian has unveiled the first of its three aircraft designs for Disney&#x27;s live-action &quot;Moana&quot; on an Airbus A321neo, ahead of the film&#x27;s July 10 debut. The post Three new Hawaiian Airlines liveries set sail this summer for Disney’s live-action ‘Moana’ appeared first on Alaska...</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                Could affect fleet capability, aircraft availability, operating economics, or future capacity.
+              </p>
+              <div class="meta">
+                <span>Alaska and Hawaiian News</span>
+                <span>Official</span>
+                <span>Jun 11, 2026</span>
+                <span>Confirmed</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="leadership">
+              <div class="card-top">
+                <span class="category">Leadership</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://news.alaskaair.com/company/alaska-air-group-announces-mike-sievert-to-board-of-directors" target="_blank" rel="noreferrer">
+                Alaska Air Group announces Mike Sievert, the telecom executive behind T-Mobile’s disruptive growth and innovation, will join board of directors
+              </a></h2>
+              <p class="summary">Sievert brings a track record of value creation, brand strength and deep ties to the Seattle business community. The post Alaska Air Group announces Mike Sievert, the telecom executive behind T-Mobile’s disruptive growth and innovation, will join board of directors appeared...</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                A leadership change can alter company priorities, execution, and strategic direction.
+              </p>
+              <div class="meta">
+                <span>Alaska and Hawaiian News</span>
+                <span>Official</span>
+                <span>Jun 03, 2026</span>
+                <span>Confirmed</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="leadership">
+              <div class="card-top">
+                <span class="category">Leadership</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://news.alaskaair.com/company/alaska-air-group-investor-day-sept-2026" target="_blank" rel="noreferrer">
+                Save the date for Alaska Air Group’s Investor Day on Sept. 29, 2026
+              </a></h2>
+              <p class="summary">Alaska Air Group, Inc. will hold an Investor Day presentation in Seattle on Tuesday, Sept. 29, 2026. The event will feature presentations and a question-and-answer session with members of Alaska’s executive leadership team. The post Save the date for Alaska Air Group’s Investor...</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                A leadership change can alter company priorities, execution, and strategic direction.
+              </p>
+              <div class="meta">
+                <span>Alaska and Hawaiian News</span>
+                <span>Official</span>
+                <span>Jun 03, 2026</span>
+                <span>Confirmed</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="fleet_aircraft">
+              <div class="card-top">
+                <span class="category">Fleet Aircraft</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://news.alaskaair.com/guest-experience/hawaiian-airlines-elevates-onboard-service" target="_blank" rel="noreferrer">
+                Hawaiian Airlines elevates onboard service with pre-order dining by celebrated Hawai‘i chefs, fresh fare across all cabins and complimentary local snacks
+              </a></h2>
+              <p class="summary">James Beard Award finalist Chef Sheldon Simeon brings Hawaiʻi flavors to Hawaiian&#x27;s Main Cabin with a new, locally inspired menu. The post Hawaiian Airlines elevates onboard service with pre-order dining by celebrated Hawai‘i chefs, fresh fare across all cabins and complimentary...</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                Could affect fleet capability, aircraft availability, operating economics, or future capacity.
+              </p>
+              <div class="meta">
+                <span>Alaska and Hawaiian News</span>
+                <span>Official</span>
+                <span>May 28, 2026</span>
+                <span>Confirmed</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="fleet_aircraft">
+              <div class="card-top">
+                <span class="category">Fleet Aircraft</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://www.airbus.com/en/newsroom/press-releases/2026-06-worlds-longest-range-aircraft-the-airbus-a350-1000ulr-takes-to-the-skies" target="_blank" rel="noreferrer">
+                World&#x27;s longest-range aircraft, the Airbus A350-1000ULR takes to the skies
+              </a></h2>
+              <p class="summary">Toulouse, France, 2 June 2026 - The A350-1000ULR (MSN 707), the first of 12 aircraft ordered by Qantas has completed its first flight in Toulouse, France. The aircraft, fitted with special flight test instrumentation, flew for three hours 43 minutes reaching an altitude of...</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                Could affect fleet capability, aircraft availability, operating economics, or future capacity.
+              </p>
+              <div class="meta">
+                <span>Airbus Newsroom</span>
+                <span>Official</span>
+                <span>Jun 01, 2026</span>
+                <span>Confirmed</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="fleet_aircraft">
+              <div class="card-top">
+                <span class="category">Fleet Aircraft</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://www.airbus.com/en/newsroom/press-releases/2026-05-airbus-partners-with-mistral-ai-to-strengthen-the-use-of-artificial-intelligence-in-sovereign" target="_blank" rel="noreferrer">
+                Airbus partners with Mistral AI to strengthen the use of artificial intelligence in sovereign aerospace applications
+              </a></h2>
+              <p class="summary">Paris, France, 28 May 2026 – Airbus has signed a partnership agreement with Mistral AI, a European leader in artificial intelligence (AI). This collaboration supports Airbus’s ambition to place cutting-edge, ethical and trustworthy AI at the core of Airbus operations and...</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                Could affect fleet capability, aircraft availability, operating economics, or future capacity.
+              </p>
+              <div class="meta">
+                <span>Airbus Newsroom</span>
+                <span>Official</span>
+                <span>May 27, 2026</span>
+                <span>Confirmed</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="fleet_aircraft">
+              <div class="card-top">
+                <span class="category">Fleet Aircraft</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://www.iata.org/en/pressroom/2026-releases/06-09-iata-turbulence-aware-coverage-latin-america-boosted" target="_blank" rel="noreferrer">
+                IATA Turbulence Aware Coverage of Latin America Boosted
+              </a></h2>
+              <p class="summary">Mexico City – The International Air Transport Association’s (IATA’s) Turbulence Aware coverage of Latin America has been significantly boosted as Aeromexico becomes the latest airline to join the program. The inclusion of Aeromexico brings coverage of turbulence incidents across...</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                Could affect fleet capability, aircraft availability, operating economics, or future capacity.
+              </p>
+              <div class="meta">
+                <span>IATA Pressroom</span>
+                <span>Industry</span>
+                <span>Jun 13, 2026</span>
+                <span>Confirmed</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="policy">
+              <div class="card-top">
+                <span class="category">Policy</span>
+                <span class="importance importance-3">
+                  Priority 3/5
+                </span>
+              </div>
+              <h2><a href="https://www.iata.org/en/pressroom/2026-releases/06-08-brazil-opportunity-saf-powerhouse" target="_blank" rel="noreferrer">
+                Brazil’s Opportunity to Be a SAF Powerhouse
+              </a></h2>
+              <p class="summary">Rio de Janeiro – The International Air Transport Association (IATA) highlighted Brazil’s opportunity to become a SAF powerhouse as its 82 nd Annual General Meeting gathered in Rio de Janeiro, Brazil. This would make Brazil a key player in air transport’s decarbonization,...</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                May change airline obligations, passenger rights, fees, or compliance requirements.
+              </p>
+              <div class="meta">
+                <span>IATA Pressroom</span>
+                <span>Industry</span>
+                <span>Jun 13, 2026</span>
+                <span>Confirmed</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="financial_strategy">
+              <div class="card-top">
+                <span class="category">Financial Strategy</span>
+                <span class="importance importance-2">
+                  Priority 2/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxNTDdmaWJQcURfWXlxeVpGZ1F0cHJzclFRbEVqLTlLcExpRnRQS25zT3FqUUFyRWtIUHpYdUxuZS1tczNxOGxGWl9hZnlrb2VMN2pQdFRpOUloN2lXZVdheEN3ZWRzQmZqV1o3bE9PcHd6LUVYSXhJUkdxUk1YeDFxeERHdEFySzNjbmVTNEtR?oc=5" target="_blank" rel="noreferrer">
+                Allegiant Air completes Sun Country Airlines acquisition - Key Aero
+              </a></h2>
+              <p class="summary">Allegiant Air completes Sun Country Airlines acquisition Key Aero</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                Could influence airline competition, investment priorities, partnerships, or financial performance.
+              </p>
+              <div class="meta">
+                <span>Allegiant Air Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 12, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="operations">
+              <div class="card-top">
+                <span class="category">Operations</span>
+                <span class="importance importance-2">
+                  Priority 2/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxNMDdPd0JGNlY1NGU4Rjg4cWNSZTk0VVR4dGEyd1NHX1NTSXhaZ1EtUkZDczltOHNJbHg3VWVoN2daMVhfZWdHVkh0Q0JNcURqSlBvYnNEVUZiSWFSbklCOU5NaWcwaVkzLXh1UklYZ0lYRXA1SzNCYXRQVURXSDVSVHE5ZElvckZO?oc=5" target="_blank" rel="noreferrer">
+                Allegiant Launches 8 New Routes to Florida and Georgia [Fares Start at $39] - Upgraded Points
+              </a></h2>
+              <p class="summary">Allegiant Launches 8 New Routes to Florida and Georgia [Fares Start at $39] Upgraded Points</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                Could affect routes, schedules, airport operations, capacity, or day-of-travel reliability.
+              </p>
+              <div class="meta">
+                <span>Allegiant Air Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 06, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="operations">
+              <div class="card-top">
+                <span class="category">Operations</span>
+                <span class="importance importance-2">
+                  Priority 2/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxQbE5yZzYwcndfQzBtcEFvRUdkQmtyTzcxWVdnMUpFWFlfaFdhaHlpdmY4SGR6TDFtbUpvSEdld0RGeEFqQ2pBdmVuNGlsRHBXU2pNellDNk1IMkVXc1hyQ1hsVHZON2tVTGhMcjFnaVhEWk9id2t5c1U2U0t2aTdqZzBoVVUxUQ?oc=5" target="_blank" rel="noreferrer">
+                Frontier adds West Coast airport, fills 2 former Spirit routes - The Points Guy
+              </a></h2>
+              <p class="summary">Frontier adds West Coast airport, fills 2 former Spirit routes The Points Guy</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                Could affect routes, schedules, airport operations, capacity, or day-of-travel reliability.
+              </p>
+              <div class="meta">
+                <span>Spirit Airlines Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 09, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="operations">
+              <div class="card-top">
+                <span class="category">Operations</span>
+                <span class="importance importance-2">
+                  Priority 2/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxQd2JQOG9WbC0xRHlUTFNGNDJ3VE0ta2NEZWFyQ1pzNkN6NVFMWHdPYXkzTkp1N1phNGlvcWFSNnlBTnJ1eTlJY1pHcXI0YTFHVG1DQUFUSVBWRDJPU0RGMHBGLVgwSHpJaHlvWS1INTFqMDFlQWlWMVhfbG1KSmVIVmJtTWM3b25ISzdORw?oc=5" target="_blank" rel="noreferrer">
+                MSY optimistic other airlines will fill routes after Spirit cuts - New Orleans CityBusiness
+              </a></h2>
+              <p class="summary">MSY optimistic other airlines will fill routes after Spirit cuts New Orleans CityBusiness</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                Could affect routes, schedules, airport operations, capacity, or day-of-travel reliability.
+              </p>
+              <div class="meta">
+                <span>Spirit Airlines Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 09, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="operations">
+              <div class="card-top">
+                <span class="category">Operations</span>
+                <span class="importance importance-2">
+                  Priority 2/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxQa3VKQU80bGM2Y2NGem1iNzlZdkt0cEVucEt5eEJvbzM3bGd1bThzNkY2OUVSbTNENnE2bXVpeXVXUENXNkwwdm1wNlRuMnE3N1dxVXgxdi1YNUd6Q0gtVE9kTzhZVW1KWlFzZjJzNnpsUG1xQTgwOEljR1hjMEtJMDk5UkJwQjRtWk9LcG1PRDhCNFZqNWwzXzdRTjJ5aXZmOXBxZFE3YWNoSTFoTnAteTYteXc4S0xkUmpsMTR3R1Zfcms?oc=5" target="_blank" rel="noreferrer">
+                N.J. airport neared busiest in years — until Spirit Airlines’ collapse changed everything - NJ.com
+              </a></h2>
+              <p class="summary">N.J. airport neared busiest in years — until Spirit Airlines’ collapse changed everything NJ.com</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                Could affect routes, schedules, airport operations, capacity, or day-of-travel reliability.
+              </p>
+              <div class="meta">
+                <span>Spirit Airlines Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 06, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="operations">
+              <div class="card-top">
+                <span class="category">Operations</span>
+                <span class="importance importance-2">
+                  Priority 2/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMi4gFBVV95cUxQN1FUUVpCNDE3dmZTb3BBMU1GN0Q1WENmWXNfQk4wQ3E0Y0NSZm1WNXJlSWpwUlBnVTNwak9BTF9Dd3JLU1J6SmJ6NW9tMFYwNThEUzBLZzRvclVEVTNObFBUc25XT0YwZ3ZKdWdaeEtiQlJkLUN3OUU3ejZJRTVESU1xWnE3TWdOS3NoLUd1MUg1NVpsalkxNWdjbEhLQndrUmUwOHFHSzcwQlVqVU9kZkZ5UjItZ2ExVEtDbWdvOF80MUJHdDYwMWl2SGhBa2V6azdBT0NYcDhVakxGSEw2WmZB?oc=5" target="_blank" rel="noreferrer">
+                Frontier Announces Two New Routes Launching Late Summer 2026, Including Its Return to Oakland San Francisco Bay Airport - Frontier Airlines
+              </a></h2>
+              <p class="summary">Frontier Announces Two New Routes Launching Late Summer 2026, Including Its Return to Oakland San Francisco Bay Airport Frontier Airlines</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                Could affect routes, schedules, airport operations, capacity, or day-of-travel reliability.
+              </p>
+              <div class="meta">
+                <span>Frontier Airlines Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 09, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            
+            <article class="news-card" data-category="customer_experience">
+              <div class="card-top">
+                <span class="category">Customer Experience</span>
+                <span class="importance importance-2">
+                  Priority 2/5
+                </span>
+              </div>
+              <h2><a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE9Eb2VBV3V1UTVKZjNFbVVRRHl6elFTUUlwM05Bd2QyQ0RmcWxJZl9pTHhRTUN2NHhZcTdOdnFiMjhBWDR1cTlEUmlaSS0xdEZjLUFtZ3NhMzNyZm4zUjdsbHI1MklfU0hSNDhmSVZvX1RHNVdFYkhR?oc=5" target="_blank" rel="noreferrer">
+                Frontier Airlines Review — Seats, Amenities, Customer Service, Baggage Fees &amp; More - Upgraded Points
+              </a></h2>
+              <p class="summary">Frontier Airlines Review — Seats, Amenities, Customer Service, Baggage Fees &amp; More Upgraded Points</p>
+              <p class="impact"><strong>Why it matters:</strong>
+                May change the passenger experience, loyalty benefits, seating, baggage, or airport journey.
+              </p>
+              <div class="meta">
+                <span>Frontier Airlines Media Coverage</span>
+                <span>Media</span>
+                <span>Jun 10, 2026</span>
+                <span>Developing</span>
+              </div>
+            </article>
+            </section>
+      <section class="health">
+        <h2>Source health</h2>
+        <details><summary>2 source warnings</summary><ul><li><strong>American Airlines Newsroom</strong>: 403 Client Error: Forbidden for url: https://news.aa.com/</li><li><strong>U.S. DOT Briefing Room</strong>: 403 Client Error: Forbidden for url: https://www.transportation.gov/briefing-room</li></ul></details>
+      </section>
+    </main>
+    <footer>Generated by Airline Watch. Headlines link to the original source.</footer>
+  </div>
+  <script>
+    document.querySelectorAll(".filter").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".filter").forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+        const selected = button.dataset.filter;
+        document.querySelectorAll(".news-card").forEach(card => {
+          card.style.display = selected === "all" || card.dataset.category === selected
+            ? "" : "none";
+        });
+      });
+    });
+  </script>
+</body>
+</html>
