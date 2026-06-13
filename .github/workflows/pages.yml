@@ -44,7 +44,7 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           AIRLINE_WATCH_MODEL: gpt-5.5
-        run: ./scripts/monitor.sh
+        run: bash ./scripts/monitor.sh
 
       - name: Disable Jekyll processing
         run: touch outputs/.nojekyll
